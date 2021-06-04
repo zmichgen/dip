@@ -1,0 +1,44 @@
+{{>menu}}
+<h1>ПОИСК</h1>
+<p>Введите запрос</p>
+
+<form action="/results/" method="POST">
+    <div class="mb-3">
+        <label for="service" class="form-label">Наименование услуги</label>
+        <select class="form-select" name="service_id">
+            <option selected>Все услуги</option>
+            {{#each services}}
+                <option value={{this.id}}>{{this.name}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="service_type" class="form-label">Вид услуг</label>
+        <select class="form-select" name="service_type_id">
+            <option selected>Все</option>
+            {{#each service_types}}
+                <option value={{this.id}}>{{this.type}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="category_id" class="form-label">Категория </label>
+        <select class="form-select" name="category_id">
+            <option selected>Все</option>
+            {{#each categories}}
+                <option value={{this.id}}>{{this.name}}</option>
+            {{/each}}
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="gender_id" class="form-label">Пол врача </label>
+        <select class="form-select" name="gender_id">
+            <option selected>Все</option>
+            {{#each genders}}
+                <option value={{this.id}}>{{this.name}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Найти</button>
+</form>
